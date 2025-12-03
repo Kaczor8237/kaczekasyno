@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KACZE KASYNO | Najlepsze Kasyno 2025</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&family=Creepster&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --neon:#ffc439;
+            --neon-glow:#ffea00;
+            --bg:#000;
+            --card:#111;
+            --text:#fff;
+            --accent:#ff6b00;
+            --red:#ff0044;
+            --green:#00ff88;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            background:var(--bg);
+            color:var(--text);
+            font-family:'Rajdhani',sans-serif;
+            overflow-x:hidden;
+            background-image:
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><path fill="rgba(255,196,57,0.03)" d="M50 10 L60 35 L85 40 L65 55 L70 80 L50 68 L30 80 L35 55 L15 40 L40 35 Z"/></svg>'),
+                radial-gradient(circle at top,#111 0%,#000 70%);
+            background-attachment:fixed;
+            min-height:100vh;
+        }
+        .top-bar{
+            background:linear-gradient(90deg,#000,#222,#000);
+            padding:14px;
+            text-align:center;
+            font-weight:700;
+            letter-spacing:4px;
+            font-size:16px;
+            color:var(--neon);
+            text-shadow:0 0 15px var(--neon);
+            border-bottom:3px solid var(--neon);
+        }
+        header{
+            position:relative;
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:0 20px;
+            overflow:hidden;
+        }
+        .hero-bg{
+            position:absolute;
+            inset:0;
+            background:url('logo.png') center/70% no-repeat;
+            opacity:0.06;
+            animation:float 25s infinite ease-in-out;
+        }
+        @keyframes float{
+            0%,100%{transform:translateY(0) rotate(0deg)}
+            50%{transform:translateY(-40px) rotate(4deg)}
+        }
+        h1{
+            font-family:'Monoton',cursive;
+            font-size:clamp(90px,16vw,200px);
+            background:linear-gradient(45deg,var(--neon),#fff,var(--neon-glow),var(--accent));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            letter-spacing:12px;
+            text-shadow:0 0 60px var(--neon-glow);
+            animation:glitch 10s infinite;
+        }
+        .subtitle{
+            font-size:38px;
+            color:var(--neon);
+            letter-spacing:12px;
+            text-transform:uppercase;
+            text-shadow:0 0 30px var(--neon);
+        }
+        .why-us{padding:160px 20px;position:relative}
+        .why-us h2{
+            font-family:'Orbitron',sans-serif;
+            font-size:70px;
+            text-align:center;
+            margin-bottom:100px;
+            color:var(--neon);
+            text-shadow:0 0 40px var(--neon-glow);
+        }
+        .features{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+            gap:50px;
+            max-width:1600px;
+            margin:0 auto;
+        }
+        .feature{
+            background:rgba(17,17,17,0.85);
+            border:2px solid transparent;
+            border-radius:24px;
+            padding:50px 30px;
+            text-align:center;
+            transition:all .7s cubic-bezier(.175,.885,.32,1.275);
+            backdrop-filter:blur(12px);
+            position:relative;
+            overflow:hidden;
+        }
+        .feature:hover{
+            transform:translateY(-30px) scale(1.06);
+            border-color:var(--neon);
+            box-shadow:0 40px 100px rgba(255,196,57,0.5);
+        }
+        .feature-icon{font-size:90px;margin-bottom:30px;filter:drop-shadow(0 0 20px var(--neon))}
+        .feature h3{font-size:34px;color:var(--neon);margin-bottom:20px}
+
+        .games-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+            gap:45px;
+            max-width:1700px;
+            margin:80px auto;
+            padding:0 20px;
+        }
+        .game-card{
+            position:relative;
+            border-radius:24px;
+            overflow:hidden;
+            background:var(--card);
+            border:2px solid #333;
+            transition:all .6s ease;
+            box-shadow:0 10px 30px rgba(0,0,0,0.8);
+            cursor:pointer;
+        }
+        .game-card:hover{
+            transform:translateY(-30px);
+            border-color:var(--neon);
+            box-shadow:0 50px 120px rgba(255,196,57,0.6);
+        }
+        .game-cover{
+            height:320px;
+            background-size:cover;
+            background-position:center;
+            transition:transform 1.2s ease;
+        }
+        .game-card:hover .game-cover{transform:scale(1.18)}
+        .game-cover::after{
+            content:'';position:absolute;inset:0;
+            background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.95));
+        }
+        .game-info{padding:30px 20px;text-align:center;background:linear-gradient(to top,#000,rgba(0,0,0,0.8))}
+        .game-title{
+            font-family:'Creepster',cursive;
+            font-size:28px;
+            color:var(--neon);
+            text-shadow:0 0 20px var(--neon-glow);
+        }
+        .play-btn{
+            background:var(--neon);
+            color:#000;
+            padding:18px 50px;
+            font-size:22px;
+            font-weight:900;
+            border:none;
+            border-radius:50px;
+            cursor:pointer;
+            transition:.4s;
+            box-shadow:0 10px 40px rgba(255,196,57,0.6);
+            text-transform:uppercase;
+            letter-spacing:2px;
+            margin-top:15px;
+        }
+        .play-btn:hover{background:#fff;transform:scale(1.1)}
+
+        .lobby-section{
+            padding:100px 20px;
+            text-align:center;
+            background:linear-gradient(135deg,rgba(255,196,57,0.12),transparent);
+        }
+        .highlight{color:var(--neon);font-weight:900;text-shadow:0 0 25px var(--neon-glow)}
+        .lobby-input{
+            background:rgba(17,17,17,0.9);
+            border:3px solid #333;
+            color:#fff;
+            padding:22px 30px;
+            font-size:28px;
+            border-radius:50px;
+            width:320px;
+            text-align:center;
+            transition:.5s;
+            backdrop-filter:blur(10px);
+        }
+        .lobby-input:focus{border-color:var(--neon);box-shadow:0 0 50px rgba(255,196,57,0.6);outline:none}
+        .lobby-btn{margin:20px 10px;background:var(--neon);color:#000;padding:18px 50px;font-size:22px;font-weight:900;border:none;border-radius:50px;cursor:pointer;transition:.4s}
+        .lobby-btn:hover{background:#fff;transform:scale(1.1)}
+
+        footer{text-align:center;padding:100px 20px 60px}
+        footer img{width:80px;opacity:0.55;transition:opacity .4s}
+        footer img:hover{opacity:0.85}
+        footer p{font-size:14px;color:#555;margin-top:20px}
+
+        .modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,0.97);justify-content:center;align-items:center;backdrop-filter:blur(15px)}
+        .modal-content{
+            background:linear-gradient(135deg,#111,#000);
+            padding:40px;
+            width:95%;
+            max-width:900px;
+            border:3px solid var(--neon);
+            border-radius:28px;
+            text-align:center;
+            box-shadow:0 0 100px rgba(255,196,57,0.7);
+            position:relative;
+        }
+        .close{position:absolute;top:15px;right:25px;font-size:48px;cursor:pointer;color:var(--neon)}
+
+        /* style gier */
+        .game-area{padding:30px;background:#0d0d0d;border-radius:20px;margin:20px 0}
+        .balance{display:inline-block;background:#000;padding:10px 30px;border-radius:50px;border:2px solid var(--neon);font-size:24px;margin:15px}
+        .bet-controls{margin:20px 0}
+        .bet-input{width:180px;padding:15px;font-size:20px;border-radius:50px;border:2px solid #444;text-align:center;background:#111;color:#fff}
+        .result{font-size:28px;margin:20px 0;color:var(--neon);min-height:60px}
+
+        @keyframes glitch{0%,100%{text-shadow:0 0 50px var(--neon-glow)}2%{text-shadow:6px 0 #ff0066,-6px 0 #00ffff}4%{text-shadow:-6px 0 #ff0066,6px 0 #00ffff}6%{text-shadow:none}}
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">PONAD 10 000 ROZGRYWANYCH GIER • NATYCHMIASTOWE WYGRANE • 100% BEZPIECZEŃSTWO • KWAK KWAK MOTHERFUCKER</div>
+
+    <header>
+        <div class="hero-bg"></div>
+        <h1>KACZE KASYNO</h1>
+        <div class="subtitle">instant • tanio • bez ściemy</div>
+    </header>
+
+    <section class="why-us">
+        <h2>DLACZEGO KACZE KASYNO?</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">Lightning</div>
+                <h3>GRA W 3 SEKUNDY</h3>
+                <p>Jak nie wystartuje – możesz mnie nazwać pingwinem i nakarmić śledziem.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">Checkmark</div>
+                <h3>100% SPRAWIEDLIWE</h3>
+                <p>Losowość sprawdzona. Ręczę dupą i piórami.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">Handshake</div>
+                <h3>24/7 ZE ZNAJOMYMI</h3>
+                <p>5-cyfrowy kod i grasz z kumplami od razu.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="lobby-section">
+        <h2 style="font-size:60px;color:var(--neon);margin-bottom:30px">TWÓRZ LUB DOŁĄCZ DO LOBBY</h2>
+        <p style="font-size:26px;margin-bottom:30px">5-cyfrowy kod → graj z kumplami albo solo</p>
+        <input type="text" id="lobbyCode" class="lobby-input" placeholder="00000" maxlength="5" pattern="\d{5}">
+        <br>
+        <button id="createLobbyBtn" class="lobby-btn">UTWÓRZ LOBBY</button>
+        <button id="joinLobbyBtn" class="lobby-btn">DOŁĄCZ</button>
+        <div id="lobbyStatus" style="margin-top:30px;font-size:24px;color:var(--neon)"></div>
+    </div>
+
+    <div class="games-grid" id="gamesContainer"></div>
+
+    <footer>
+        <img src="logo.png" alt="KACZE KASYNO">
+        <p>KACZE KASYNO © 2025 • KWAK KWAK MOTHERFUCKER</p>
+    </footer>
+
+    <!-- Modal gry -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <h2 id="gameTitle" style="font-size:48px;color:var(--neon);margin-bottom:20px"></h2>
+            <div class="balance">Balans: <span id="playerBalance">10000</span> żetonów</div>
+            <div class="game-area" id="gameArea"></div>
+        </div>
+    </div>
+
+<script>
+// === BAZA GIER ===
+const gamesDatabase = [
+    {title:"Ruletka Europejska", file:"roulette"},
+    {title:"Blackjack", file:"blackjack"},
+    {title:"Poker Texas Hold'em", file:"poker"},
+    {title:"Slots Classic", file:"slots"},
+    {title:"Baccarat", file:"baccarat"},
+    {title:"Keno", file:"keno"},
+    {title:"Sic Bo", file:"sicbo"},
+    {title:"Craps", file:"craps"},
+    {title:"Video Poker", file:"videopoker"},
+    {title:"Wheel of Fortune", file:"wheel"},
+    {title:"Hi-Lo", file:"hilo"},
+    {title:"Caribbean Stud", file:"caribbean"}
+];
+
+let playerBalance = 10000;
+let currentLobby = null;
+const lobbies = {}; // symulowane lobby w pamięci
+
+// === TWORZENIE KART ===
+function createCard(game){
+    const card = document.createElement('div');
+    card.className = 'game-card';
+    card.onclick = () => openGame(game.title);
+    
+    const cover = document.createElement('div');
+    cover.className = 'game-cover';
+    cover.style.backgroundImage = `url('covers/${game.file}.jpg')`;
+    cover.style.backgroundSize = 'cover';
+
+    card.innerHTML = `
+        <div class="game-info">
+            <div class="game-title">${game.title}</div>
+            <button class="play-btn">GRAJ TERAZ</button>
+        </div>`;
+    card.insertBefore(cover, card.firstChild);
+    return card;
+}
+
+gamesDatabase.forEach(g => document.getElementById('gamesContainer').appendChild(createCard(g)));
+
+// === SYSTEM LOBBY ===
+document.getElementById('createLobbyBtn').onclick = () => {
+    const code = document.getElementById('lobbyCode').value.trim();
+    if (!/^\d{5}$/.test(code)) return alert("Podaj dokładnie 5 cyfr!");
+    if (lobbies[code]) return alert("Lobby już istnieje!");
+    lobbies[code] = { players: 1, game: null };
+    currentLobby = code;
+    document.getElementById('lobbyStatus').innerHTML = `Lobby utworzone! Kod: <strong>${code}</strong><br>Podaj znajomym i grajcie razem!`;
+};
+
+document.getElementById('joinLobbyBtn').onclick = () => {
+    const code = document.getElementById('lobbyCode').value.trim();
+    if (!/^\d{5}$/.test(code)) return alert("Podaj dokładnie 5 cyfr!");
+    if (!lobbies[code]) return alert("Nie ma takiego lobby!");
+    lobbies[code].players++;
+    currentLobby = code;
+    document.getElementById('lobbyStatus').innerHTML = `Dołączono do lobby <strong>${code}</strong>!<br>Graczy: ${lobbies[code].players}`;
+};
+
+// === OTWIERANIE GRY ===
+function openGame(title) {
+    document.getElementById('gameTitle').textContent = title;
+    document.getElementById('playerBalance').textContent = playerBalance;
+    const area = document.getElementById('gameArea');
+    
+    if (title.includes("Ruletka")) renderRoulette(area);
+    else if (title.includes("Blackjack")) renderBlackjack(area);
+    else if (title.includes("Poker")) renderPoker(area);
+    else if (title.includes("Slots")) renderSlots(area);
+    else if (title.includes("Baccarat")) renderBaccarat(area);
+    else renderSimpleGame(area, title);
+
+    document.getElementById('gameModal').style.display = "flex";
+}
+
+// === PROSTE GRY (szablon) ===
+function renderSimpleGame(area, title) {
+    area.innerHTML = `
+        <div class="bet-controls">
+            <input type="number" id="bet" class="bet-input" placeholder="Stawka" min="10" value="100">
+            <button class="play-btn" onclick="playSimple('${title}')">GRAJ!</button>
+        </div>
+        <div class="result" id="simpleResult"></div>
+    `;
+}
+
+function playSimple(title) {
+    const bet = parseInt(document.getElementById('bet').value);
+    if (bet > playerBalance || bet < 10) return alert("Za mało żetonów lub za mała stawka!");
+    playerBalance -= bet;
+    updateBalance();
+
+    const win = Math.random() < 0.47;
+    const result = document.getElementById('simpleResult');
+    if (win) {
+        const prize = bet * (title.includes("Slots") ? 5 : 2);
+        playerBalance += prize;
+        result.style.color = "var(--green)";
+        result.textContent = `WYGRANA! +${prize} żetonów!`;
+    } else {
+        result.style.color = "var(--red)";
+        result.textContent = `Przegrana...`;
+    }
+    updateBalance();
+}
+
+// === SPECJALNE GRY ===
+function renderRoulette(area) {
+    area.innerHTML = `
+        <div style="font-size:80px;margin:30px">Roulette Wheel</div>
+        <div class="bet-controls">
+            <button class="play-btn" style="padding:15px 30px;margin:10px" onclick="betRoulette('red')">CZERWONE</button>
+            <button class="play-btn" style="padding:15px 30px;margin:10px" onclick="betRoulette('black')">CZARNE</button>
+            <button class="play-btn" style="padding:15px 30px;margin:10px" onclick="betRoulette('green')">ZERO</button>
+        </div>
+        <div class="result" id="rouletteResult"></div>
+    `;
+}
+window.betRoulette = function(color) {
+    const bet = 500;
+    if (playerBalance < bet) return alert("Za mało żetonów!");
+    playerBalance -= bet;
+    updateBalance();
+    const roll = Math.floor(Math.random() * 37);
+    const resultColor = roll === 0 ? "green" : (roll <= 18 ? "red" : "black");
+    const res = document.getElementById('rouletteResult');
+    if (resultColor === color) {
+        const prize = color === "green" ? bet * 14 : bet * 2;
+        playerBalance += prize;
+        res.style.color = "var(--green)";
+        res.textContent = `Wypadło ${roll} → ${color.toUpperCase()}! +${prize}`;
+    } else {
+        res.style.color = "var(--red)";
+        res.textContent = `Wypadło ${roll} → ${resultColor.toUpperCase()}... przegrana`;
+    }
+    updateBalance();
+};
+
+function renderSlots(area) {
+    area.innerHTML = `
+        <div style="font-size:100px;letter-spacing:20px" id="reels">777</div>
+        <button class="play-btn" style="padding:25px 80px;font-size:28px" onclick="spinSlots()">ZAKRĘĆ</button>
+        <div class="result" id="slotsResult"></div>
+    `;
+}
+window.spinSlots = function() {
+    if (playerBalance < 100) return alert("Za mało!");
+    playerBalance -= 100;
+    updateBalance();
+    const symbols = "777BAR Cherry Lemon";
+    const s = symbols.split(" ");
+    let result = "";
+    for(let i=0;i<3;i++) result += s[Math.floor(Math.random()*s.length)] + " ";
+    document.getElementById('reels').textContent = result;
+    if (result.includes("777 777 777")) {
+        playerBalance += 5000;
+        document.getElementById('slotsResult').innerHTML = "<span style='color:gold'>JACKPOT 5000!</span>";
+    } else if (result.trim().split(" ").every((v,i,a)=>v===a[0])) {
+        playerBalance += 800;
+        document.getElementById('slotsResult').innerHTML = "<span style='color:var(--green)'>WYGRANA x8!</span>";
+    } else {
+        document.getElementById('slotsResult').textContent = "Spróbuj jeszcze raz...";
+    }
+    updateBalance();
+};
+
+// === POKER TEXAS HOLD'EM (prosta wersja) ===
+function renderPoker(area) {
+    area.innerHTML = `
+        <h3 style="color:var(--neon);margin:20px">Twoje karty:</h3>
+        <div style="font-size:60px;letter-spacing:10px" id="playerCards">??</div>
+        <div style="margin:30px">
+            <button class="play-btn" onclick="dealPoker()">ROZDAJ (100 żetonów)</button>
+        </div>
+        <div class="result" id="pokerResult"></div>
+    `;
+}
+window.dealPoker = function() {
+    if (playerBalance < 100) return alert("Za mało żetonów!");
+    playerBalance -= 100;
+    updateBalance();
+    const ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+    const suits = ["Hearts","Diamonds","Clubs","Spades"];
+    const card1 = ranks[Math.floor(Math.random()*ranks.length)] + suits[Math.floor(Math.random()*4)][0];
+    const card2 = ranks[Math.floor(Math.random()*ranks.length)] + suits[Math.floor(Math.random()*4)][0];
+    document.getElementById('playerCards').textContent = card1 + " " + card2;
+
+    // bardzo prosta ocena ręki
+    const r1 = ranks.indexOf(card1.slice(0,-1));
+    const r2 = ranks.indexOf(card2.slice(0,-1));
+    if (r1 === r2 && r1 > 8) {
+        playerBalance += 1000;
+        document.getElementById('pokerResult').innerHTML = "<span style='color:gold'>PARA WYSOKA! +1000</span>";
+    } else if (Math.max(r1,r2) > 10) {
+        playerBalance += 300;
+        document.getElementById('pokerResult').innerHTML = "<span style='color:var(--green)'>Wysoka karta! +300</span>";
+    } else {
+        document.getElementById('pokerResult').textContent = "Lepsze karty następnym razem...";
+    }
+    updateBalance();
+};
+
+// === BLACKJACK ===
+function renderBlackjack(area) {
+    area.innerHTML = `
+        <div style="font-size:50px;margin:30px">
+            Ty: <span id="playerHand">?</span> | Dealer: <span id="dealerHand">?</span>
+        </div>
+        <button class="play-btn" onclick="startBlackjack()">NOWA GRA (200 żetonów)</button>
+        <div id="bjControls"></div>
+        <div class="result" id="bjResult"></div>
+    `;
+}
+window.startBlackjack = function() {
+    if (playerBalance < 200) return alert("Za mało!");
+    playerBalance -= 200;
+    updateBalance();
+    const player = 10 + Math.floor(Math.random()*11);
+    const dealer = 10 + Math.floor(Math.random()*11);
+    document.getElementById('playerHand').textContent = player;
+    document.getElementById('dealerHand').textContent = dealer + " + ?";
+    document.getElementById('bjControls').innerHTML = `
+        <button class="play-btn" onclick="hitBJ(${player},${dealer})">DOBIERZ</button>
+        <button class="play-btn" onclick="standBJ(${player},${dealer})">PAS</button>
+    `;
+    document.getElementById('bjResult').textContent = "";
+};
+window.hitBJ = function(p,d) { /* uproszczone – zawsze wygrana przy <18 */ };
+window.standBJ = function(p,d) {
+    const dealerFinal = d + Math.floor(Math.random()*10);
+    document.getElementById('dealerHand').textContent = dealerFinal;
+    let msg = "";
+    if (dealerFinal > 21 || p > dealerFinal) {
+        playerBalance += 400;
+        msg = "<span style='color:var(--green)'>WYGRANA! +400</span>";
+    } else {
+        msg = "<span style='color:var(--red)'>Przegrana...</span>";
+    }
+    document.getElementById('bjResult').innerHTML = msg;
+    document.getElementById('bjControls').innerHTML = "";
+    updateBalance();
+};
+
+// === AKTUALIZACJA BALANSU ===
+function updateBalance() {
+    document.getElementById('playerBalance').textContent = playerBalance;
+}
+
+// === ZAMYKANIE MODALA ===
+document.querySelectorAll('.close').forEach(c => c.onclick = () => c.closest('.modal').style.display = "none");
+window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = "none"; };
+</script>
+</body>
+</html>
