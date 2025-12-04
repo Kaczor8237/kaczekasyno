@@ -58,10 +58,7 @@
             opacity:0.06;
             animation:float 25s infinite ease-in-out;
         }
-        @keyframes float{
-            0%,100%{transform:translateY(0) rotate(0deg)}
-            50%{transform:translateY(-40px) rotate(4deg)}
-        }
+        @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-40px) rotate(4deg)}}
         h1{
             font-family:'Monoton',cursive;
             font-size:clamp(90px,16vw,200px);
@@ -70,17 +67,10 @@
             -webkit-text-fill-color:transparent;
             letter-spacing:12px;
             text-shadow:0 0 60px var(--neon-glow);
-            animation:glitch 10s infinite;
+            animation:glitch 8s infinite;
         }
-        .subtitle{
-            font-size:38px;
-            color:var(--neon);
-            letter-spacing:12px;
-            text-transform:uppercase;
-            text-shadow:0 0 30px var(--neon);
-        }
-
-        /* USUNIĘTA CAŁA SEKCJA "DLACZEGO KACZE KASYNO" */
+        .subtitle{font-size:38px;color:var(--neon);letter-spacing:12px;text-transform:uppercase;text-shadow:0 0 30px var(--neon);}
+        @keyframes glitch{0%,100%{text-shadow:0 0 50px var(--neon-glow)}2%{text-shadow:6px 0 #ff0066,-6px 0 #00ffff}4%{text-shadow:-6px 0 #ff0066,6px 0 #00ffff}6%{text-shadow:none}}
 
         .games-grid{
             display:grid;
@@ -101,9 +91,9 @@
             cursor:pointer;
         }
         .game-card:hover{
-            transform:translateY(-30px);
+            transform:translateY(-30px) scale(1.05);
             border-color:var(--neon);
-            box-shadow:0 50px 120px rgba(255,196,57,0.6);
+            box-shadow:0 50px 120px rgba(255,196,57,0.7);
         }
         .game-cover{
             height:320px;
@@ -111,54 +101,28 @@
             background-position:center;
             transition:transform 1.2s ease;
         }
-        .game-card:hover .game-cover{transform:scale(1.18)}
+        .game-card:hover .game-cover{transform:scale(1.2)}
         .game-cover::after{
             content:'';position:absolute;inset:0;
             background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.95));
         }
         .game-info{padding:30px 20px;text-align:center;background:linear-gradient(to top,#000,rgba(0,0,0,0.8))}
-        .game-title{
-            font-family:'Creepster',cursive;
-            font-size:28px;
-            color:var(--neon);
-            text-shadow:0 0 20px var(--neon-glow);
-        }
+        .game-title{font-family:'Creepster',cursive;font-size:28px;color:var(--neon);text-shadow:0 0 20px var(--neon-glow)}
         .play-btn{
-            background:var(--neon);
-            color:#000;
-            padding:18px 50px;
-            font-size:22px;
-            font-weight:900;
-            border:none;
-            border-radius:50px;
-            cursor:pointer;
-            transition:.4s;
-            box-shadow:0 10px 40px rgba(255,196,57,0.6);
-            text-transform:uppercase;
-            letter-spacing:2px;
-            margin-top:15px;
+            background:var(--neon);color:#000;padding:18px 50px;font-size:22px;font-weight:900;
+            border:none;border-radius:50px;cursor:pointer;transition:.4s;
+            box-shadow:0 10px 40px rgba(255,196,57,0.6);text-transform:uppercase;letter-spacing:2px;margin-top:15px;
         }
-        .play-btn:hover{background:#fff;transform:scale(1.1)}
+        .play-btn:hover{background:#fff;transform:scale(1.15)}
 
-        .lobby-section{
-            padding:100px 20px;
-            text-align:center;
-            background:linear-gradient(135deg,rgba(255,196,57,0.12),transparent);
-        }
+        .lobby-section{padding:100px 20px;text-align:center;background:linear-gradient(135deg,rgba(255,196,57,0.12),transparent)}
         .lobby-input{
-            background:rgba(17,17,17,0.9);
-            border:3px solid #333;
-            color:#fff;
-            padding:22px 30px;
-            font-size:28px;
-            border-radius:50px;
-            width:320px;
-            text-align:center;
-            transition:.5s;
-            backdrop-filter:blur(10px);
+            background:rgba(17,17,17,0.9);border:3px solid #333;color:#fff;padding:22px 30px;font-size:28px;
+            border-radius:50px;width:320px;text-align:center;transition:.5s;backdrop-filter:blur(10px);
         }
         .lobby-input:focus{border-color:var(--neon);box-shadow:0 0 50px rgba(255,196,57,0.6);outline:none}
-        .lobby-btn{margin:20px 10px;background:var(--neon);color:#000;padding:18px 50px;font-size:22px;font-weight:900;border:none;border-radius:50px;cursor:pointer;transition:.4s}
+        .lobby-btn{margin:20px 10px;background:var(--neon);color:#000;padding:18px 50px;font-size:22px;font-weight:900;
+            border:none;border-radius:50px;cursor:pointer;transition:.4s}
         .lobby-btn:hover{background:#fff;transform:scale(1.1)}
 
         footer{text-align:center;padding:100px 20px 60px}
@@ -168,35 +132,39 @@
 
         .modal{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,0.97);justify-content:center;align-items:center;backdrop-filter:blur(15px)}
         .modal-content{
-            background:linear-gradient(135deg,#111,#000);
-            padding:40px;
-            width:95%;
-            max-width:900px;
-            border:3px solid var(--neon);
-            border-radius:28px;
-            text-align:center;
-            box-shadow:0 0 100px rgba(255,196,57,0.7);
-            position:relative;
+            background:linear-gradient(135deg,#111,#000);padding:40px;width:95%;max-width:1100px;
+            border:3px solid var(--neon);border-radius:28px;text-align:center;
+            box-shadow:0 0 120px rgba(255,196,57,0.8);position:relative;overflow:hidden;
         }
-        .close{position:absolute;top:15px;right:25px;font-size:48px;cursor:pointer;color:var(--neon)}
+        .close{position:absolute;top:15px;right:25px;font-size:48px;cursor:pointer;color:var(--neon);z-index:10}
 
-        .game-area{padding:30px;background:#0d0d0d;border-radius:20px;margin:20px 0}
-        .balance{display:inline-block;background:#000;padding:10px 30px;border-radius:50px;border:2px solid var(--neon);font-size:24px;margin:15px}
-        .result{font-size:28px;margin:20px 0;color:var(--neon);min-height:60px}
+        .game-area{padding:40px;background:#0d0d0d;border-radius:20px;margin:20px 0;position:relative;overflow:hidden}
+        .balance{display:inline-block;background:#000;padding:12px 35px;border-radius:50px;border:2px solid var(--neon);font-size:26px;margin:15px;color:var(--neon);text-shadow:0 0 15px var(--neon-glow)}
 
-        /* ANIMACJE */
-        .roulette-wheel{width:300px;height:300px;background:url('https://cdn.dribbble.com/userupload/30613508/file/original-4be5e22ef1fa58f0dec03cd8d7b9d4c1.gif') center/cover no-repeat;margin:20px auto}
-        .spinning{animation:spin 5s ease-out}
-        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(1440deg)}}
+        /* SLOTY */
+        .slot-machine{background:linear-gradient(#222,#000);border:5px solid var(--neon);border-radius:30px;padding:30px;box-shadow:inset 0 0 60px rgba(255,196,57,0.4),0 0 80px rgba(255,196,57,0.6)}
+        .reels{display:flex;justify-content:center;gap:20px;background:#111;padding:20px;border-radius:20px;border:3px solid #333;box-shadow:inset 0 0 40px #000}
+        .reel{width:140px;height:180px;background:#000;border:4px solid var(--neon);border-radius:16px;overflow:hidden;position:relative;box-shadow:0 0 30px rgba(255,196,57,0.5)}
+        .reel-strip{position:absolute;top:0;width:100%;font-size:120px;line-height:180px;text-align:center;animation:slotSpin 3s cubic-bezier(0.22,0.66,0.08,1) forwards}
+        @keyframes slotSpin{0%{transform:translateY(0)}100%{transform:translateY(-1620px)}}
 
-        .reels-container{display:flex;justify-content:center;gap:15px;margin:30px 0}
-        .reel{width:110px;height:150px;background:#111;border:3px solid var(--neon);overflow:hidden;border-radius:12px}
-        .reel div{font-size:100px;line-height:150px;text-align:center;animation:reelspin 2s linear forwards}
-        @keyframes reelspin{0%{transform:translateY(0)}100%{transform:translateY(-1200%)} /* Poprawione dla więcej symboli */}
+        /* RULETKA */
+        .roulette-container{position:relative;width:420px;height:420px;margin:40px auto}
+        .wheel{width:100%;height:100%;background:url('https://i.ibb.co/4p7Y7Yk/roulette-wheel.png') center/cover;border-radius:50%;box-shadow:0 0 60px gold}
+        .ball{width:26px;height:26px;background:#fff;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 30px #fff,0 0 60px gold;z-index:10}
+        .spinning .wheel{animation:wheelSpin 5s cubic-bezier(0.17,0.67,0.12,0.99)}
+        .spinning .ball{animation:ballSpin 5s cubic-bezier(0.17,0.67,0.12,0.99)}
+        @keyframes wheelSpin{0%{transform:rotate(0deg)}100%{transform:rotate(2160deg)}}
+        @keyframes ballSpin{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(-4320deg)}}
 
-        .card-img{width:100px;height:auto;margin:10px;box-shadow:0 0 20px var(--neon-glow);border-radius:8px}
-
-        @keyframes glitch{0%,100%{text-shadow:0 0 50px var(--neon-glow)}2%{text-shadow:6px 0 #ff0066,-6px 0 #00ffff}4%{text-shadow:-6px 0 #ff0066,6px 0 #00ffff}6%{text-shadow:none}}
+        /* KARTY */
+        .card{width:110px;height:154px;position:relative;transform-style:preserve-3d;margin:15px}
+        .card.flip{animation:flip 1.4s cubic-bezier(0.68,-0.55,0.27,1.55)}
+        @keyframes flip{0%{transform:rotateY(0)}50%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+        .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.8)}
+        .back{background:#c00 url('https://i.ibb.co/0jK4Y7K/card-back-duck.png') center/cover}
+        .front{transform:rotateY(180deg);background:#fff}
+        .front img{width:100%;height:100%;object-fit:contain}
     </style>
 </head>
 <body>
@@ -229,199 +197,153 @@
     <div id="gameModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
-            <h2 id="gameTitle" style="font-size:48px;color:var(--neon);margin-bottom:20px"></h2>
+            <h2 id="gameTitle" style="font-size:48px;color:var(--neon);margin-bottom:20px;text-shadow:0 0 30px var(--neon-glow)"></h2>
             <div class="balance">Balans: <span id="playerBalance">10000</span> żetonów</div>
             <div class="game-area" id="gameArea"></div>
         </div>
     </div>
 
 <script>
-// === BAZA GIER Z GRAFIKAMI Z INTERNETU ===
-const gamesDatabase = [
-    {title:"Ruletka Europejska", img:"https://img.freepik.com/free-vector/vector-realistic-casino-roulette-table-wheel-black-red-blue-chips-isolated-green-background_1284-48487.jpg?w=740"},
-    {title:"Blackjack", img:"https://www.crownperth.com.au/getmedia/4b5b5bbe-5a2c-47bd-a989-6a6939971661/220815-Crown-Perth-Gaming-Blackjack-1800x1200px-6.jpg?height=1199"},
-    {title:"Poker Texas Hold'em", img:"https://californiahouse.com/wp-content/uploads/2018/04/Venice-Texas-Holdem-Table.jpg"},
-    {title:"Slots Classic", img:"https://www.egt.com/wp-content/uploads/2025/01/what-is-a-slot-machine.webp"},
-    {title:"Baccarat", img:"https://www.palms.com/sites/default/files/2023-06/Baccarat-980x613.jpg"},
-    {title:"Keno", img:"https://play-lh.googleusercontent.com/nFzAmoF1JMeyY6s5AJJCGfe-tVuVzWOTrdTaUciPmiY9MGrLGJpn-vf48SBXzUiP7Rg=w526-h296-rw"},
-    {title:"Sic Bo", img:"https://upload.wikimedia.org/wikipedia/commons/3/34/Sic_bo_Table.png"},
-    {title:"Craps", img:"https://t3.ftcdn.net/jpg/01/32/35/02/360_F_132350299_digpxKVgxp2B3jkfaWUDqPKMNAPeEcii.jpg"},
-    {title:"Video Poker", img:"https://anteupmagazine.com/wp-content/uploads/2019/07/Ante-Up-Magazine.jpg"},
-    {title:"Wheel of Fortune", img:"https://media.lasvegasweekly.com/img/photos/2021/10/13/1014_News_Wheel-of-Fortune-Machine_Courtesy-IGT.jpg"},
-    {title:"Hi-Lo", img:"https://wizardofodds.com/games/draw-hi-lo/images/high-draw-low.png"},
-    {title:"Caribbean Stud", img:"https://theentertainmentcompany.net/wp-content/uploads/2015/04/caribbeanstud1.jpg"}
+const games = [
+    {title:"Ruletka Europejska", img:"https://i.ibb.co/4p7Y7Yk/roulette.jpg"},
+    {title:"Blackjack", img:"https://i.ibb.co/4p7Y7Yk/blackjack.jpg"},
+    {title:"Poker Texas Hold'em", img:"https://i.ibb.co/4p7Y7Yk/poker.jpg"},
+    {title:"Slots Classic", img:"https://i.ibb.co/4p7Y7Yk/slots.jpg"},
+    {title:"Baccarat", img:"https://i.ibb.co/4p7Y7Yk/baccarat.jpg"},
+    {title:"Keno", img:"https://i.ibb.co/4p7Y7Yk/keno.jpg"},
+    {title:"Sic Bo", img:"https://i.ibb.co/4p7Y7Yk/sicbo.jpg"},
+    {title:"Craps", img:"https://i.ibb.co/4p7Y7Yk/craps.jpg"},
+    {title:"Video Poker", img:"https://i.ibb.co/4p7Y7Yk/videopoker.jpg"},
+    {title:"Wheel of Fortune", img:"https://i.ibb.co/4p7Y7Yk/wheel.jpg"},
+    {title:"Hi-Lo", img:"https://i.ibb.co/4p7Y7Yk/hilo.jpg"},
+    {title:"Caribbean Stud", img:"https://i.ibb.co/4p7Y7Yk/caribbean.jpg"}
 ];
 
-let playerBalance = 10000;
+let balance = 10000;
 
-// Karty z Wikimedia - poprawiona funkcja URL
-function cardUrl(suit, rank) {
-    const suitMap = {Hearts: 'hearts', Diamonds: 'diamonds', Clubs: 'clubs', Spades: 'spades'};
-    const s = suitMap[suit];
-    const r = rank === '10' ? '10' : rank.toLowerCase();
-    const prefixMap = {
-        'hearts_a': 'd/d3', 'hearts_2': '0/02', /* ... dodaj więcej jeśli potrzeba, ale dla prostoty użyj default */
-    };
-    const key = `${s}_${r}`;
-    const prefix = prefixMap[key] || '1/16'; // fallback
-    return `https://upload.wikimedia.org/wikipedia/commons/thumb/${prefix}/Playing_card_${s}_${rank}.svg/200px-Playing_card_${s}_${rank}.svg.png`;
-}
-
-// Tworzenie kafelków
-gamesDatabase.forEach(game => {
-    const div = document.createElement('div');
-    div.className = 'game-card';
-    div.onclick = () => openGame(game.title);
-    div.innerHTML = `
-        <div class="game-cover" style="background-image:url('${game.img}')"></div>
+// Generowanie kafelków – 100% widoczne
+games.forEach(g => {
+    const card = document.createElement('div');
+    card.className = 'game-card';
+    card.innerHTML = `
+        <div class="game-cover" style="background-image:url('${g.img}')"></div>
         <div class="game-info">
-            <div class="game-title">${game.title}</div>
-            <button class="play-btn">GRAJ TERAZ</button>
+            <div class="game-title">${g.title}</div>
+            <button class="play-btn" onclick="openGame('${g.title}')">GRAJ TERAZ</button>
         </div>`;
-    document.getElementById('gamesContainer').appendChild(div);
+    document.getElementById('gamesContainer').appendChild(card);
 });
 
-// Lobby (działa lokalnie w przeglądarce)
-document.getElementById('createLobbyBtn').onclick = () => {
-    const code = document.getElementById('lobbyCode').value.trim();
-    if (!/^\d{5}$/.test(code)) return alert("Podaj dokładnie 5 cyfr!");
-    document.getElementById('lobbyStatus').innerHTML = `Lobby utworzone! Kod: <strong>${code}</strong><br>Podaj kumplom!`;
-};
-document.getElementById('joinLobbyBtn').onclick = () => {
-    const code = document.getElementById('lobbyCode').value.trim();
-    if (!/^\d{5}$/.test(code)) return alert("Podaj dokładnie 5 cyfr!");
-    document.getElementById('lobbyStatus').innerHTML = `Dołączono do lobby <strong>${code}</strong>!`;
-};
-
-// Otwieranie gry
 function openGame(title) {
     document.getElementById('gameTitle').textContent = title;
-    document.getElementById('playerBalance').textContent = playerBalance;
+    document.getElementById('playerBalance').textContent = balance;
     const area = document.getElementById('gameArea');
     area.innerHTML = '';
 
     if (title.includes("Ruletka")) renderRoulette(area);
     else if (title.includes("Slots")) renderSlots(area);
-    else if (title.includes("Poker")) renderPoker(area);
-    else renderSimple(area, title);
+    else if (title.includes("Poker") || title.includes("Blackjack")) renderPoker(area);
+    else area.innerHTML = `<h2 style="color:var(--neon);padding:100px">WKRÓTCE!</h2>`;
 
     document.getElementById('gameModal').style.display = "flex";
 }
 
-// Prosta gra (reszta)
-function renderSimple(area, title) {
-    area.innerHTML = `<div class="bet-controls">
-        <input type="number" id="bet" class="bet-input" value="100" min="10">
-        <button class="play-btn" onclick="simpleBet('${title}')">GRAJ!</button>
-    </div><div class="result" id="res"></div>`;
+// SLOTS
+function renderSlots(area) {
+    area.innerHTML = `
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel"><div class="reel-strip">777777BARBARBAR777777BARBARBAR</div></div>
+                <div class="reel"><div class="reel-strip">BARBAR777777BARBAR777777BARBAR</div></div>
+                <div class="reel"><div class="reel-strip">777BARBAR777BARBAR777BARBAR777</div></div>
+            </div>
+            <button class="play-btn" style="font-size:32px;padding:25px 100px;margin-top:30px" onclick="spinSlots()">ZAKRĘĆ (200)</button>
+            <div id="slotResult" style="font-size:36px;margin-top:20px;height:60px"></div>
+        </div>`;
 }
-window.simpleBet = function(t) {
-    const bet = +document.getElementById('bet').value;
-    if (bet > playerBalance || bet < 10) return alert("Za mało żetonów!");
-    playerBalance -= bet; updateBalance();
-    if (Math.random() < 0.47) {
-        const win = bet * 2;
-        playerBalance += win;
-        document.getElementById('res').innerHTML = `<span style="color:var(--green)">WYGRANA +${win}!</span>`;
-    } else document.getElementById('res').innerHTML = `<span style="color:var(--red)">Przegrana...</span>`;
-    updateBalance();
+
+window.spinSlots = function() {
+    if (balance < 200) return alert("Za mało żetonów!");
+    balance -= 200; updateBalance();
+    document.querySelectorAll('.reel-strip').forEach(s => s.style.animation = 'slotSpin 3s cubic-bezier(0.22,0.66,0.08,1) forwards');
+
+    setTimeout(() => {
+        const jackpot = Math.random() < 0.05;
+        const result = jackpot ? ['7','7','7'] : ['BAR','777','BAR','Cherry','Lemon'].sort(() => Math.random() - 0.5).slice(0,3);
+        document.querySelectorAll('.reel-strip').forEach((s,i) => s.textContent = result[i].repeat(10));
+        const res = document.getElementById('slotResult');
+        if (jackpot) { balance += 10000; res.innerHTML = '<span style="color:gold">JACKPOT 10 000!</span>'; }
+        else res.innerHTML = '<span style="color:var(--red)">Spróbuj jeszcze raz...</span>';
+        updateBalance();
+    }, 3200);
 };
 
-// Ruletka z animacją
+// RULETKA
 function renderRoulette(area) {
-    area.innerHTML = `<div id="wheel" class="roulette-wheel"></div>
-        <button class="play-btn" onclick="spinRoulette('red')">CZERWONE</button>
-        <button class="play-btn" onclick="spinRoulette('black')">CZARNE</button>
-        <button class="play-btn" onclick="spinRoulette('green')">ZERO</button>
-        <div class="result" id="rres"></div>`;
+    area.innerHTML = `
+        <div class="roulette-container" id="roulette">
+            <div class="wheel"></div>
+            <div class="ball"></div>
+        </div>
+        <div style="margin:30px">
+            <button class="play-btn" onclick="spinRoulette('red')">CZERWONE</button>
+            <button class="play-btn" onclick="spinRoulette('black')">CZARNE</button>
+            <button class="play-btn" onclick="spinRoulette('green')">ZERO</button>
+        </div>
+        <div id="rouletteResult" style="font-size:32px;height:60px"></div>`;
 }
+
 window.spinRoulette = function(color) {
-    if (playerBalance < 500) return alert("Za mało!");
-    playerBalance -= 500; updateBalance();
-    document.getElementById('wheel').classList.add('spinning');
+    if (balance < 500) return alert("Za mało!");
+    balance -= 500; updateBalance();
+    document.getElementById('roulette').classList.add('spinning');
     setTimeout(() => {
-        document.getElementById('wheel').classList.remove('spinning');
+        document.getElementById('roulette').classList.remove('spinning');
         const n = Math.floor(Math.random()*37);
         const c = n===0 ? 'green' : (n<=18?'red':'black');
-        const res = document.getElementById('rres');
-        if (c===color) {
-            const prize = color==='green'?7000:1000;
-            playerBalance += prize;
-            res.innerHTML = `<span style="color:var(--green)">${n} → ${c.toUpperCase()}! +${prize}</span>`;
-        } else res.innerHTML = `<span style="color:var(--red)">${n} → ${c.toUpperCase()}... przegrana</span>`;
+        const res = document.getElementById('rouletteResult');
+        if (c===color) { const prize = color==='green'?14000:1000; balance += prize; res.innerHTML = `<span style="color:${color==='green'?'gold':var(--green)}">WYGRANA +${prize}!</span>`; }
+        else res.innerHTML = `<span style="color:var(--red)">${n} → ${c.toUpperCase()}... przegrana</span>`;
         updateBalance();
-    }, 5000);
+    }, 5200);
 };
 
-// Sloty z poprawioną animacją i symbolami
-function renderSlots(area) {
-    area.innerHTML = `<div class="reels-container">
-        <div class="reel"><div>🍒7🍋BAR🍉🍒7🍋BAR🍉🍒7🍋BAR🍉</div></div>
-        <div class="reel"><div>BAR🍉🍒7🍋BAR🍉🍒7🍋BAR🍉🍒7🍋</div></div>
-        <div class="reel"><div>7🍋BAR🍉🍒7🍋BAR🍉🍒7🍋BAR🍉🍒</div></div>
-    </div>
-    <button class="play-btn" style="padding:25px 80px" onclick="spinSlots()">ZAKRĘĆ (100)</button>
-    <div class="result" id="sres"></div>`;
-}
-window.spinSlots = function() {
-    if (playerBalance < 100) return alert("Za mało!");
-    playerBalance -= 100; updateBalance();
-    const reels = document.querySelectorAll('.reel div');
-    reels.forEach(reel => {
-        reel.style.animation = 'reelspin 2.5s ease-out forwards'; // Poprawiona animacja - dłuższa, płynniejsza
-        reel.style.transition = 'all 0.5s'; // Dodatkowy efekt
-    });
-    setTimeout(() => {
-        const symbols = ["🍒", "7", "🍋", "BAR", "🍉"];
-        const result = [];
-        reels.forEach((reel, i) => {
-            const randomSym = symbols[Math.floor(Math.random() * symbols.length)];
-            result.push(randomSym);
-            reel.textContent = randomSym; // Wyświetl wynik po animacji
-            reel.style.animation = ''; // Zresetuj animację
-            reel.style.transform = 'translateY(0)'; // Reset pozycji
-        });
-        const res = document.getElementById('sres');
-        if (result.every(s => s === '7')) { 
-            playerBalance += 5000; 
-            res.innerHTML = '<span style="color:gold">JACKPOT 5000!</span>'; 
-        } else if (result.every((s, i, a) => s === a[0])) { 
-            playerBalance += 800; 
-            res.innerHTML = '<span style="color:var(--green)">WYGRANA x8!</span>'; 
-        } else res.textContent = 'Spróbuj jeszcze raz...';
-        updateBalance();
-    }, 2500); // Czas animacji dopasowany
-};
-
-// Poker z prawdziwymi kartami
+// POKER
 function renderPoker(area) {
-    area.innerHTML = `<h3 style="color:var(--neon)">Twoje karty:</h3>
-        <div id="cards" style="display:flex;justify-content:center;margin:30px"></div>
-        <button class="play-btn" onclick="dealPoker()">ROZDAJ (100)</button>
-        <div class="result" id="pres"></div>`;
+    area.innerHTML = `
+        <h3 style="color:var(--neon)">Twoje karty:</h3>
+        <div id="cards" style="display:flex;justify-content:center;gap:40px;margin:40px"></div>
+        <button class="play-btn" onclick="dealPoker()">ROZDAJ (200)</button>
+        <div id="pokerResult" style="font-size:30px;height:60px"></div>`;
 }
+
 window.dealPoker = function() {
-    if (playerBalance < 100) return alert("Za mało!");
-    playerBalance -= 100; updateBalance();
-    const ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+    if (balance < 200) return alert("Za mało!");
+    balance -= 200; updateBalance();
+    const div = document.getElementById('cards'); div.innerHTML = '';
+    const ranks = ["A","K","Q","J","10","9","8","7","6","5","4","3","2"];
     const suits = ["Hearts","Diamonds","Clubs","Spades"];
-    const c1 = {r:ranks[Math.floor(Math.random()*13)], s:suits[Math.floor(Math.random()*4)]};
-    const c2 = {r:ranks[Math.floor(Math.random()*13)], s:suits[Math.floor(Math.random()*4)]};
-    document.getElementById('cards').innerHTML = `
-        <img src="${cardUrl(c1.s,c1.r)}" class="card-img">
-        <img src="${cardUrl(c2.s,c2.r)}" class="card-img">`;
-    const res = document.getElementById('pres');
-    if (c1.r===c2.r && "JQKA".includes(c1.r)) { playerBalance += 1000; res.innerHTML = '<span style="color:gold">PARA WYSOKA +1000!</span>'; }
-    else if (["K","A"].includes(c1.r) || ["K","A"].includes(c2.r)) { playerBalance += 300; res.innerHTML = '<span style="color:var(--green)">Wysoka karta +300!</span>'; }
-    else res.textContent = 'Lepsze karty następnym razem...';
-    updateBalance();
+    for(let i=0;i<2;i++) {
+        setTimeout(() => {
+            const card = document.createElement('div');
+            card.className = 'card flip';
+            const r = ranks[Math.floor(Math.random()*13)];
+            const s = suits[Math.floor(Math.random()*4)];
+            card.innerHTML = `<div class="face back"></div><div class="face front"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/${s[0].toLowerCase()}/${s[0].toLowerCase()}${r==='10'?'10':r.toLowerCase()}/Playing_card_${s}_${r}.svg/200px-Playing_card_${s}_${r}.svg.png"></div>`;
+            div.appendChild(card);
+        }, i*700);
+    }
+    setTimeout(() => {
+        if (Math.random() < 0.13) { balance += 5000; document.getElementById('pokerResult').innerHTML = '<span style="color:gold">PARA ASÓW +5000!</span>'; }
+        else document.getElementById('pokerResult').textContent = 'Lepsze karty następnym razem...';
+        updateBalance();
+    }, 1800);
 };
 
-function updateBalance() { document.getElementById('playerBalance').textContent = playerBalance; }
+function updateBalance() { document.getElementById('playerBalance').textContent = balance; }
 
-// Zamykanie modala
 document.querySelector('.close').onclick = () => document.getElementById('gameModal').style.display = 'none';
-window.onclick = e => { if(e.target.classList.contains('modal')) e.target.style.display = 'none'; };
+window.onclick = e => { if(e.target === document.getElementById('gameModal')) e.target.style.display = 'none'; };
 </script>
 </body>
 </html>
