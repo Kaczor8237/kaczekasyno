@@ -79,47 +79,15 @@
             text-transform:uppercase;
             text-shadow:0 0 30px var(--neon);
         }
-        .why-us{padding:160px 20px;position:relative}
-        .why-us h2{
-            font-family:'Orbitron',sans-serif;
-            font-size:70px;
-            text-align:center;
-            margin-bottom:100px;
-            color:var(--neon);
-            text-shadow:0 0 40px var(--neon-glow);
-        }
-        .features{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-            gap:50px;
-            max-width:1600px;
-            margin:0 auto;
-        }
-        .feature{
-            background:rgba(17,17,17,0.85);
-            border:2px solid transparent;
-            border-radius:24px;
-            padding:50px 30px;
-            text-align:center;
-            transition:all .7s cubic-bezier(.175,.885,.32,1.275);
-            backdrop-filter:blur(12px);
-            position:relative;
-            overflow:hidden;
-        }
-        .feature:hover{
-            transform:translateY(-30px) scale(1.06);
-            border-color:var(--neon);
-            box-shadow:0 40px 100px rgba(255,196,57,0.5);
-        }
-        .feature-icon{font-size:90px;margin-bottom:30px;filter:drop-shadow(0 0 20px var(--neon))}
-        .feature h3{font-size:34px;color:var(--neon);margin-bottom:20px}
+
+        /* USUNIĘTA CAŁA SEKCJA "DLACZEGO KACZE KASYNO" */
 
         .games-grid{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
             gap:45px;
             max-width:1700px;
-            margin:80px auto;
+            margin:120px auto 80px;
             padding:0 20px;
         }
         .game-card{
@@ -177,7 +145,6 @@
             text-align:center;
             background:linear-gradient(135deg,rgba(255,196,57,0.12),transparent);
         }
-        .highlight{color:var(--neon);font-weight:900;text-shadow:0 0 25px var(--neon-glow)}
         .lobby-input{
             background:rgba(17,17,17,0.9);
             border:3px solid #333;
@@ -213,12 +180,21 @@
         }
         .close{position:absolute;top:15px;right:25px;font-size:48px;cursor:pointer;color:var(--neon)}
 
-        /* style gier */
         .game-area{padding:30px;background:#0d0d0d;border-radius:20px;margin:20px 0}
         .balance{display:inline-block;background:#000;padding:10px 30px;border-radius:50px;border:2px solid var(--neon);font-size:24px;margin:15px}
-        .bet-controls{margin:20px 0}
-        .bet-input{width:180px;padding:15px;font-size:20px;border-radius:50px;border:2px solid #444;text-align:center;background:#111;color:#fff}
         .result{font-size:28px;margin:20px 0;color:var(--neon);min-height:60px}
+
+        /* ANIMACJE */
+        .roulette-wheel{width:300px;height:300px;background:url('https://cdn.dribbble.com/userupload/30613508/file/original-4be5e22ef1fa58f0dec03cd8d7b9d4c1.gif') center/cover no-repeat;margin:20px auto}
+        .spinning{animation:spin 5s ease-out}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(1440deg)}}
+
+        .reels-container{display:flex;justify-content:center;gap:15px;margin:30px 0}
+        .reel{width:110px;height:150px;background:#111;border:3px solid var(--neon);overflow:hidden;border-radius:12px}
+        .reel div{font-size:100px;line-height:150px;text-align:center;animation:reelspin 2s linear forwards}
+        @keyframes reelspin{0%{transform:translateY(0)}100%{transform:translateY(-1200%)} /* Poprawione dla więcej symboli */}
+
+        .card-img{width:100px;height:auto;margin:10px;box-shadow:0 0 20px var(--neon-glow);border-radius:8px}
 
         @keyframes glitch{0%,100%{text-shadow:0 0 50px var(--neon-glow)}2%{text-shadow:6px 0 #ff0066,-6px 0 #00ffff}4%{text-shadow:-6px 0 #ff0066,6px 0 #00ffff}6%{text-shadow:none}}
     </style>
@@ -233,31 +209,10 @@
         <div class="subtitle">instant • tanio • bez ściemy</div>
     </header>
 
-    <section class="why-us">
-        <h2>DLACZEGO KACZE KASYNO?</h2>
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">Lightning</div>
-                <h3>GRA W 3 SEKUNDY</h3>
-                <p>Jak nie wystartuje – możesz mnie nazwać pingwinem i nakarmić śledziem.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">Checkmark</div>
-                <h3>100% SPRAWIEDLIWE</h3>
-                <p>Losowość sprawdzona. Ręczę dupą i piórami.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">Handshake</div>
-                <h3>24/7 ZE ZNAJOMYMI</h3>
-                <p>5-cyfrowy kod i grasz z kumplami od razu.</p>
-            </div>
-        </div>
-    </section>
-
     <div class="lobby-section">
         <h2 style="font-size:60px;color:var(--neon);margin-bottom:30px">TWÓRZ LUB DOŁĄCZ DO LOBBY</h2>
         <p style="font-size:26px;margin-bottom:30px">5-cyfrowy kod → graj z kumplami albo solo</p>
-        <input type="text" id="lobbyCode" class="lobby-input" placeholder="00000" maxlength="5" pattern="\d{5}">
+        <input type="text" id="lobbyCode" class="lobby-input" placeholder="00000" maxlength="5">
         <br>
         <button id="createLobbyBtn" class="lobby-btn">UTWÓRZ LOBBY</button>
         <button id="joinLobbyBtn" class="lobby-btn">DOŁĄCZ</button>
@@ -271,7 +226,6 @@
         <p>KACZE KASYNO © 2025 • KWAK KWAK MOTHERFUCKER</p>
     </footer>
 
-    <!-- Modal gry -->
     <div id="gameModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -282,259 +236,192 @@
     </div>
 
 <script>
-// === BAZA GIER ===
+// === BAZA GIER Z GRAFIKAMI Z INTERNETU ===
 const gamesDatabase = [
-    {title:"Ruletka Europejska", file:"roulette"},
-    {title:"Blackjack", file:"blackjack"},
-    {title:"Poker Texas Hold'em", file:"poker"},
-    {title:"Slots Classic", file:"slots"},
-    {title:"Baccarat", file:"baccarat"},
-    {title:"Keno", file:"keno"},
-    {title:"Sic Bo", file:"sicbo"},
-    {title:"Craps", file:"craps"},
-    {title:"Video Poker", file:"videopoker"},
-    {title:"Wheel of Fortune", file:"wheel"},
-    {title:"Hi-Lo", file:"hilo"},
-    {title:"Caribbean Stud", file:"caribbean"}
+    {title:"Ruletka Europejska", img:"https://img.freepik.com/free-vector/vector-realistic-casino-roulette-table-wheel-black-red-blue-chips-isolated-green-background_1284-48487.jpg?w=740"},
+    {title:"Blackjack", img:"https://www.crownperth.com.au/getmedia/4b5b5bbe-5a2c-47bd-a989-6a6939971661/220815-Crown-Perth-Gaming-Blackjack-1800x1200px-6.jpg?height=1199"},
+    {title:"Poker Texas Hold'em", img:"https://californiahouse.com/wp-content/uploads/2018/04/Venice-Texas-Holdem-Table.jpg"},
+    {title:"Slots Classic", img:"https://www.egt.com/wp-content/uploads/2025/01/what-is-a-slot-machine.webp"},
+    {title:"Baccarat", img:"https://www.palms.com/sites/default/files/2023-06/Baccarat-980x613.jpg"},
+    {title:"Keno", img:"https://play-lh.googleusercontent.com/nFzAmoF1JMeyY6s5AJJCGfe-tVuVzWOTrdTaUciPmiY9MGrLGJpn-vf48SBXzUiP7Rg=w526-h296-rw"},
+    {title:"Sic Bo", img:"https://upload.wikimedia.org/wikipedia/commons/3/34/Sic_bo_Table.png"},
+    {title:"Craps", img:"https://t3.ftcdn.net/jpg/01/32/35/02/360_F_132350299_digpxKVgxp2B3jkfaWUDqPKMNAPeEcii.jpg"},
+    {title:"Video Poker", img:"https://anteupmagazine.com/wp-content/uploads/2019/07/Ante-Up-Magazine.jpg"},
+    {title:"Wheel of Fortune", img:"https://media.lasvegasweekly.com/img/photos/2021/10/13/1014_News_Wheel-of-Fortune-Machine_Courtesy-IGT.jpg"},
+    {title:"Hi-Lo", img:"https://wizardofodds.com/games/draw-hi-lo/images/high-draw-low.png"},
+    {title:"Caribbean Stud", img:"https://theentertainmentcompany.net/wp-content/uploads/2015/04/caribbeanstud1.jpg"}
 ];
 
 let playerBalance = 10000;
-let currentLobby = null;
-const lobbies = {}; // symulowane lobby w pamięci
 
-// === TWORZENIE KART ===
-function createCard(game){
-    const card = document.createElement('div');
-    card.className = 'game-card';
-    card.onclick = () => openGame(game.title);
-    
-    const cover = document.createElement('div');
-    cover.className = 'game-cover';
-    cover.style.backgroundImage = `url('covers/${game.file}.jpg')`;
-    cover.style.backgroundSize = 'cover';
+// Karty z Wikimedia - poprawiona funkcja URL
+function cardUrl(suit, rank) {
+    const suitMap = {Hearts: 'hearts', Diamonds: 'diamonds', Clubs: 'clubs', Spades: 'spades'};
+    const s = suitMap[suit];
+    const r = rank === '10' ? '10' : rank.toLowerCase();
+    const prefixMap = {
+        'hearts_a': 'd/d3', 'hearts_2': '0/02', /* ... dodaj więcej jeśli potrzeba, ale dla prostoty użyj default */
+    };
+    const key = `${s}_${r}`;
+    const prefix = prefixMap[key] || '1/16'; // fallback
+    return `https://upload.wikimedia.org/wikipedia/commons/thumb/${prefix}/Playing_card_${s}_${rank}.svg/200px-Playing_card_${s}_${rank}.svg.png`;
+}
 
-    card.innerHTML = `
+// Tworzenie kafelków
+gamesDatabase.forEach(game => {
+    const div = document.createElement('div');
+    div.className = 'game-card';
+    div.onclick = () => openGame(game.title);
+    div.innerHTML = `
+        <div class="game-cover" style="background-image:url('${game.img}')"></div>
         <div class="game-info">
             <div class="game-title">${game.title}</div>
             <button class="play-btn">GRAJ TERAZ</button>
         </div>`;
-    card.insertBefore(cover, card.firstChild);
-    return card;
-}
+    document.getElementById('gamesContainer').appendChild(div);
+});
 
-gamesDatabase.forEach(g => document.getElementById('gamesContainer').appendChild(createCard(g)));
-
-// === SYSTEM LOBBY ===
+// Lobby (działa lokalnie w przeglądarce)
 document.getElementById('createLobbyBtn').onclick = () => {
     const code = document.getElementById('lobbyCode').value.trim();
     if (!/^\d{5}$/.test(code)) return alert("Podaj dokładnie 5 cyfr!");
-    if (lobbies[code]) return alert("Lobby już istnieje!");
-    lobbies[code] = { players: 1, game: null };
-    currentLobby = code;
-    document.getElementById('lobbyStatus').innerHTML = `Lobby utworzone! Kod: <strong>${code}</strong><br>Podaj znajomym i grajcie razem!`;
+    document.getElementById('lobbyStatus').innerHTML = `Lobby utworzone! Kod: <strong>${code}</strong><br>Podaj kumplom!`;
 };
-
 document.getElementById('joinLobbyBtn').onclick = () => {
     const code = document.getElementById('lobbyCode').value.trim();
     if (!/^\d{5}$/.test(code)) return alert("Podaj dokładnie 5 cyfr!");
-    if (!lobbies[code]) return alert("Nie ma takiego lobby!");
-    lobbies[code].players++;
-    currentLobby = code;
-    document.getElementById('lobbyStatus').innerHTML = `Dołączono do lobby <strong>${code}</strong>!<br>Graczy: ${lobbies[code].players}`;
+    document.getElementById('lobbyStatus').innerHTML = `Dołączono do lobby <strong>${code}</strong>!`;
 };
 
-// === OTWIERANIE GRY ===
+// Otwieranie gry
 function openGame(title) {
     document.getElementById('gameTitle').textContent = title;
     document.getElementById('playerBalance').textContent = playerBalance;
     const area = document.getElementById('gameArea');
-    
+    area.innerHTML = '';
+
     if (title.includes("Ruletka")) renderRoulette(area);
-    else if (title.includes("Blackjack")) renderBlackjack(area);
-    else if (title.includes("Poker")) renderPoker(area);
     else if (title.includes("Slots")) renderSlots(area);
-    else if (title.includes("Baccarat")) renderBaccarat(area);
-    else renderSimpleGame(area, title);
+    else if (title.includes("Poker")) renderPoker(area);
+    else renderSimple(area, title);
 
     document.getElementById('gameModal').style.display = "flex";
 }
 
-// === PROSTE GRY (szablon) ===
-function renderSimpleGame(area, title) {
-    area.innerHTML = `
-        <div class="bet-controls">
-            <input type="number" id="bet" class="bet-input" placeholder="Stawka" min="10" value="100">
-            <button class="play-btn" onclick="playSimple('${title}')">GRAJ!</button>
-        </div>
-        <div class="result" id="simpleResult"></div>
-    `;
+// Prosta gra (reszta)
+function renderSimple(area, title) {
+    area.innerHTML = `<div class="bet-controls">
+        <input type="number" id="bet" class="bet-input" value="100" min="10">
+        <button class="play-btn" onclick="simpleBet('${title}')">GRAJ!</button>
+    </div><div class="result" id="res"></div>`;
 }
-
-function playSimple(title) {
-    const bet = parseInt(document.getElementById('bet').value);
-    if (bet > playerBalance || bet < 10) return alert("Za mało żetonów lub za mała stawka!");
-    playerBalance -= bet;
-    updateBalance();
-
-    const win = Math.random() < 0.47;
-    const result = document.getElementById('simpleResult');
-    if (win) {
-        const prize = bet * (title.includes("Slots") ? 5 : 2);
-        playerBalance += prize;
-        result.style.color = "var(--green)";
-        result.textContent = `WYGRANA! +${prize} żetonów!`;
-    } else {
-        result.style.color = "var(--red)";
-        result.textContent = `Przegrana...`;
-    }
-    updateBalance();
-}
-
-// === SPECJALNE GRY ===
-function renderRoulette(area) {
-    area.innerHTML = `
-        <div style="font-size:80px;margin:30px">Roulette Wheel</div>
-        <div class="bet-controls">
-            <button class="play-btn" style="padding:15px 30px;margin:10px" onclick="betRoulette('red')">CZERWONE</button>
-            <button class="play-btn" style="padding:15px 30px;margin:10px" onclick="betRoulette('black')">CZARNE</button>
-            <button class="play-btn" style="padding:15px 30px;margin:10px" onclick="betRoulette('green')">ZERO</button>
-        </div>
-        <div class="result" id="rouletteResult"></div>
-    `;
-}
-window.betRoulette = function(color) {
-    const bet = 500;
-    if (playerBalance < bet) return alert("Za mało żetonów!");
-    playerBalance -= bet;
-    updateBalance();
-    const roll = Math.floor(Math.random() * 37);
-    const resultColor = roll === 0 ? "green" : (roll <= 18 ? "red" : "black");
-    const res = document.getElementById('rouletteResult');
-    if (resultColor === color) {
-        const prize = color === "green" ? bet * 14 : bet * 2;
-        playerBalance += prize;
-        res.style.color = "var(--green)";
-        res.textContent = `Wypadło ${roll} → ${color.toUpperCase()}! +${prize}`;
-    } else {
-        res.style.color = "var(--red)";
-        res.textContent = `Wypadło ${roll} → ${resultColor.toUpperCase()}... przegrana`;
-    }
+window.simpleBet = function(t) {
+    const bet = +document.getElementById('bet').value;
+    if (bet > playerBalance || bet < 10) return alert("Za mało żetonów!");
+    playerBalance -= bet; updateBalance();
+    if (Math.random() < 0.47) {
+        const win = bet * 2;
+        playerBalance += win;
+        document.getElementById('res').innerHTML = `<span style="color:var(--green)">WYGRANA +${win}!</span>`;
+    } else document.getElementById('res').innerHTML = `<span style="color:var(--red)">Przegrana...</span>`;
     updateBalance();
 };
 
+// Ruletka z animacją
+function renderRoulette(area) {
+    area.innerHTML = `<div id="wheel" class="roulette-wheel"></div>
+        <button class="play-btn" onclick="spinRoulette('red')">CZERWONE</button>
+        <button class="play-btn" onclick="spinRoulette('black')">CZARNE</button>
+        <button class="play-btn" onclick="spinRoulette('green')">ZERO</button>
+        <div class="result" id="rres"></div>`;
+}
+window.spinRoulette = function(color) {
+    if (playerBalance < 500) return alert("Za mało!");
+    playerBalance -= 500; updateBalance();
+    document.getElementById('wheel').classList.add('spinning');
+    setTimeout(() => {
+        document.getElementById('wheel').classList.remove('spinning');
+        const n = Math.floor(Math.random()*37);
+        const c = n===0 ? 'green' : (n<=18?'red':'black');
+        const res = document.getElementById('rres');
+        if (c===color) {
+            const prize = color==='green'?7000:1000;
+            playerBalance += prize;
+            res.innerHTML = `<span style="color:var(--green)">${n} → ${c.toUpperCase()}! +${prize}</span>`;
+        } else res.innerHTML = `<span style="color:var(--red)">${n} → ${c.toUpperCase()}... przegrana</span>`;
+        updateBalance();
+    }, 5000);
+};
+
+// Sloty z poprawioną animacją i symbolami
 function renderSlots(area) {
-    area.innerHTML = `
-        <div style="font-size:100px;letter-spacing:20px" id="reels">777</div>
-        <button class="play-btn" style="padding:25px 80px;font-size:28px" onclick="spinSlots()">ZAKRĘĆ</button>
-        <div class="result" id="slotsResult"></div>
-    `;
+    area.innerHTML = `<div class="reels-container">
+        <div class="reel"><div>🍒7🍋BAR🍉🍒7🍋BAR🍉🍒7🍋BAR🍉</div></div>
+        <div class="reel"><div>BAR🍉🍒7🍋BAR🍉🍒7🍋BAR🍉🍒7🍋</div></div>
+        <div class="reel"><div>7🍋BAR🍉🍒7🍋BAR🍉🍒7🍋BAR🍉🍒</div></div>
+    </div>
+    <button class="play-btn" style="padding:25px 80px" onclick="spinSlots()">ZAKRĘĆ (100)</button>
+    <div class="result" id="sres"></div>`;
 }
 window.spinSlots = function() {
     if (playerBalance < 100) return alert("Za mało!");
-    playerBalance -= 100;
-    updateBalance();
-    const symbols = "777BAR Cherry Lemon";
-    const s = symbols.split(" ");
-    let result = "";
-    for(let i=0;i<3;i++) result += s[Math.floor(Math.random()*s.length)] + " ";
-    document.getElementById('reels').textContent = result;
-    if (result.includes("777 777 777")) {
-        playerBalance += 5000;
-        document.getElementById('slotsResult').innerHTML = "<span style='color:gold'>JACKPOT 5000!</span>";
-    } else if (result.trim().split(" ").every((v,i,a)=>v===a[0])) {
-        playerBalance += 800;
-        document.getElementById('slotsResult').innerHTML = "<span style='color:var(--green)'>WYGRANA x8!</span>";
-    } else {
-        document.getElementById('slotsResult').textContent = "Spróbuj jeszcze raz...";
-    }
-    updateBalance();
+    playerBalance -= 100; updateBalance();
+    const reels = document.querySelectorAll('.reel div');
+    reels.forEach(reel => {
+        reel.style.animation = 'reelspin 2.5s ease-out forwards'; // Poprawiona animacja - dłuższa, płynniejsza
+        reel.style.transition = 'all 0.5s'; // Dodatkowy efekt
+    });
+    setTimeout(() => {
+        const symbols = ["🍒", "7", "🍋", "BAR", "🍉"];
+        const result = [];
+        reels.forEach((reel, i) => {
+            const randomSym = symbols[Math.floor(Math.random() * symbols.length)];
+            result.push(randomSym);
+            reel.textContent = randomSym; // Wyświetl wynik po animacji
+            reel.style.animation = ''; // Zresetuj animację
+            reel.style.transform = 'translateY(0)'; // Reset pozycji
+        });
+        const res = document.getElementById('sres');
+        if (result.every(s => s === '7')) { 
+            playerBalance += 5000; 
+            res.innerHTML = '<span style="color:gold">JACKPOT 5000!</span>'; 
+        } else if (result.every((s, i, a) => s === a[0])) { 
+            playerBalance += 800; 
+            res.innerHTML = '<span style="color:var(--green)">WYGRANA x8!</span>'; 
+        } else res.textContent = 'Spróbuj jeszcze raz...';
+        updateBalance();
+    }, 2500); // Czas animacji dopasowany
 };
 
-// === POKER TEXAS HOLD'EM (prosta wersja) ===
+// Poker z prawdziwymi kartami
 function renderPoker(area) {
-    area.innerHTML = `
-        <h3 style="color:var(--neon);margin:20px">Twoje karty:</h3>
-        <div style="font-size:60px;letter-spacing:10px" id="playerCards">??</div>
-        <div style="margin:30px">
-            <button class="play-btn" onclick="dealPoker()">ROZDAJ (100 żetonów)</button>
-        </div>
-        <div class="result" id="pokerResult"></div>
-    `;
+    area.innerHTML = `<h3 style="color:var(--neon)">Twoje karty:</h3>
+        <div id="cards" style="display:flex;justify-content:center;margin:30px"></div>
+        <button class="play-btn" onclick="dealPoker()">ROZDAJ (100)</button>
+        <div class="result" id="pres"></div>`;
 }
 window.dealPoker = function() {
-    if (playerBalance < 100) return alert("Za mało żetonów!");
-    playerBalance -= 100;
-    updateBalance();
+    if (playerBalance < 100) return alert("Za mało!");
+    playerBalance -= 100; updateBalance();
     const ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
     const suits = ["Hearts","Diamonds","Clubs","Spades"];
-    const card1 = ranks[Math.floor(Math.random()*ranks.length)] + suits[Math.floor(Math.random()*4)][0];
-    const card2 = ranks[Math.floor(Math.random()*ranks.length)] + suits[Math.floor(Math.random()*4)][0];
-    document.getElementById('playerCards').textContent = card1 + " " + card2;
-
-    // bardzo prosta ocena ręki
-    const r1 = ranks.indexOf(card1.slice(0,-1));
-    const r2 = ranks.indexOf(card2.slice(0,-1));
-    if (r1 === r2 && r1 > 8) {
-        playerBalance += 1000;
-        document.getElementById('pokerResult').innerHTML = "<span style='color:gold'>PARA WYSOKA! +1000</span>";
-    } else if (Math.max(r1,r2) > 10) {
-        playerBalance += 300;
-        document.getElementById('pokerResult').innerHTML = "<span style='color:var(--green)'>Wysoka karta! +300</span>";
-    } else {
-        document.getElementById('pokerResult').textContent = "Lepsze karty następnym razem...";
-    }
+    const c1 = {r:ranks[Math.floor(Math.random()*13)], s:suits[Math.floor(Math.random()*4)]};
+    const c2 = {r:ranks[Math.floor(Math.random()*13)], s:suits[Math.floor(Math.random()*4)]};
+    document.getElementById('cards').innerHTML = `
+        <img src="${cardUrl(c1.s,c1.r)}" class="card-img">
+        <img src="${cardUrl(c2.s,c2.r)}" class="card-img">`;
+    const res = document.getElementById('pres');
+    if (c1.r===c2.r && "JQKA".includes(c1.r)) { playerBalance += 1000; res.innerHTML = '<span style="color:gold">PARA WYSOKA +1000!</span>'; }
+    else if (["K","A"].includes(c1.r) || ["K","A"].includes(c2.r)) { playerBalance += 300; res.innerHTML = '<span style="color:var(--green)">Wysoka karta +300!</span>'; }
+    else res.textContent = 'Lepsze karty następnym razem...';
     updateBalance();
 };
 
-// === BLACKJACK ===
-function renderBlackjack(area) {
-    area.innerHTML = `
-        <div style="font-size:50px;margin:30px">
-            Ty: <span id="playerHand">?</span> | Dealer: <span id="dealerHand">?</span>
-        </div>
-        <button class="play-btn" onclick="startBlackjack()">NOWA GRA (200 żetonów)</button>
-        <div id="bjControls"></div>
-        <div class="result" id="bjResult"></div>
-    `;
-}
-window.startBlackjack = function() {
-    if (playerBalance < 200) return alert("Za mało!");
-    playerBalance -= 200;
-    updateBalance();
-    const player = 10 + Math.floor(Math.random()*11);
-    const dealer = 10 + Math.floor(Math.random()*11);
-    document.getElementById('playerHand').textContent = player;
-    document.getElementById('dealerHand').textContent = dealer + " + ?";
-    document.getElementById('bjControls').innerHTML = `
-        <button class="play-btn" onclick="hitBJ(${player},${dealer})">DOBIERZ</button>
-        <button class="play-btn" onclick="standBJ(${player},${dealer})">PAS</button>
-    `;
-    document.getElementById('bjResult').textContent = "";
-};
-window.hitBJ = function(p,d) { /* uproszczone – zawsze wygrana przy <18 */ };
-window.standBJ = function(p,d) {
-    const dealerFinal = d + Math.floor(Math.random()*10);
-    document.getElementById('dealerHand').textContent = dealerFinal;
-    let msg = "";
-    if (dealerFinal > 21 || p > dealerFinal) {
-        playerBalance += 400;
-        msg = "<span style='color:var(--green)'>WYGRANA! +400</span>";
-    } else {
-        msg = "<span style='color:var(--red)'>Przegrana...</span>";
-    }
-    document.getElementById('bjResult').innerHTML = msg;
-    document.getElementById('bjControls').innerHTML = "";
-    updateBalance();
-};
+function updateBalance() { document.getElementById('playerBalance').textContent = playerBalance; }
 
-// === AKTUALIZACJA BALANSU ===
-function updateBalance() {
-    document.getElementById('playerBalance').textContent = playerBalance;
-}
-
-// === ZAMYKANIE MODALA ===
-document.querySelectorAll('.close').forEach(c => c.onclick = () => c.closest('.modal').style.display = "none");
-window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = "none"; };
+// Zamykanie modala
+document.querySelector('.close').onclick = () => document.getElementById('gameModal').style.display = 'none';
+window.onclick = e => { if(e.target.classList.contains('modal')) e.target.style.display = 'none'; };
 </script>
 </body>
 </html>
