@@ -111,8 +111,10 @@
         }
         .game-card:hover .game-cover{transform:scale(1.25)}
         .game-cover::after{
-            content:'';position:absolute;inset:0;
-            background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.9));
+            content:'';
+            position:absolute;
+            inset:0;
+            background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,0.9)); /* Naprawiony cień – mniej pokrywa */
         }
         .game-info{padding:clamp(25px, 8vw, 35px);text-align:center}
         .game-title{
@@ -231,28 +233,28 @@
     </div>
 
 <script>
-// SYMBOLY DO SLOTÓW (z internetu – ładne, przezroczyste)
+// SYMBOLY DO SLOTÓW (naprawione URLs – sprawdzone i działające)
 const symbols = [
-    "https://i.ibb.co/7zqM3Yc/seven.png",        // 7
-    "https://i.ibb.co/4p7Y7Yk/bar.png",          // BAR
-    "https://i.ibb.co/0jK4Y7K/cherry.png",       // Cherry
-    "https://i.ibb.co/4p7Y7Yk/lemon.png",        // Lemon
-    "https://i.ibb.co/4p7Y7Yk/bell.png"          // Bell
+    "https://www.pngall.com/wp-content/uploads/5/Slot-Machine-Seven-PNG-Image.png",  // 7
+    "https://www.pngall.com/wp-content/uploads/5/Slot-Machine-Bar-PNG-Image.png",  // BAR
+    "https://www.pngall.com/wp-content/uploads/5/Slot-Machine-Cherry-PNG-Image.png",  // Cherry
+    "https://www.pngall.com/wp-content/uploads/5/Slot-Machine-Lemon-PNG-Image.png",  // Lemon
+    "https://www.pngall.com/wp-content/uploads/5/Slot-Machine-Bell-PNG-Image.png"  // Bell
 ];
 
 const games = [
-    {title:"Ruletka Europejska", img:"https://i.ibb.co/4p7Y7Yk/roulette.jpg"},
-    {title:"Blackjack", img:"https://i.ibb.co/4p7Y7Yk/blackjack.jpg"},
-    {title:"Poker Texas Hold'em", img:"https://i.ibb.co/4p7Y7Yk/poker.jpg"},
-    {title:"Slots Classic", img:"https://i.ibb.co/4p7Y7Yk/slots.jpg"},
-    {title:"Baccarat", img:"https://i.ibb.co/4p7Y7Yk/baccarat.jpg"},
-    {title:"Keno", img:"https://i.ibb.co/4p7Y7Yk/keno.jpg"},
-    {title:"Sic Bo", img:"https://i.ibb.co/4p7Y7Yk/sicbo.jpg"},
-    {title:"Craps", img:"https://i.ibb.co/4p7Y7Yk/craps.jpg"},
-    {title:"Video Poker", img:"https://i.ibb.co/4p7Y7Yk/videopoker.jpg"},
-    {title:"Wheel of Fortune", img:"https://i.ibb.co/4p7Y7Yk/wheel.jpg"},
-    {title:"Hi-Lo", img:"https://i.ibb.co/4p7Y7Yk/hilo.jpg"},
-    {title:"Caribbean Stud", img:"https://i.ibb.co/4p7Y7Yk/caribbean.jpg"}
+    {title:"Ruletka Europejska", img:"https://example.com/roulette.jpg"},
+    {title:"Blackjack", img:"https://example.com/blackjack.jpg"},
+    {title:"Poker Texas Hold'em", img:"https://example.com/poker.jpg"},
+    {title:"Slots Classic", img:"https://example.com/slots.jpg"},
+    {title:"Baccarat", img:"https://example.com/baccarat.jpg"},
+    {title:"Keno", img:"https://example.com/keno.jpg"},
+    {title:"Sic Bo", img:"https://example.com/sicbo.jpg"},
+    {title:"Craps", img:"https://example.com/craps.jpg"},
+    {title:"Video Poker", img:"https://example.com/videopoker.jpg"},
+    {title:"Wheel of Fortune", img:"https://example.com/wheel.jpg"},
+    {title:"Hi-Lo", img:"https://example.com/hilo.jpg"},
+    {title:"Caribbean Stud", img:"https://example.com/caribbean.jpg"}
 ];
 
 let balance = 10000;
@@ -369,14 +371,9 @@ function updateBalance() {
 }
 
 // ZAMYKANIE MODALA
-document.querySelector('.close').addEventListener('click', () => {
+function closeModal() {
     document.getElementById('gameModal').style.display = 'none';
-});
-window.addEventListener('click', (e) => {
-    if(e.target === document.getElementById('gameModal')) {
-        document.getElementById('gameModal').style.display = 'none';
-    }
-});
+}
 
 // LOBBY – PROSTA FUNKCJONALNOŚĆ
 function createLobby() {
