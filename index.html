@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KACZE KASYNO | Najlepsze Kasyno 2025</title>
     <link rel="icon" href="logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&family=Creepster&family=Monoton&display=swap" rel="stylesheet">
@@ -27,17 +27,18 @@
                 radial-gradient(circle at top,#111 0%,#000 70%);
             background-attachment:fixed;
             min-height:100vh;
+            font-size: clamp(14px, 4vw, 18px); /* Responsywny font */
         }
         .top-bar{
             background:linear-gradient(90deg,#000,#222,#000);
-            padding:16px;
+            padding: clamp(10px, 3vw, 16px);
             text-align:center;
             font-weight:900;
-            letter-spacing:6px;
-            font-size:18px;
+            letter-spacing: clamp(2px, 1vw, 6px);
+            font-size: clamp(12px, 3vw, 18px);
             color:var(--neon);
             text-shadow:0 0 20px var(--neon);
-            border-bottom:4px solid var(--neon);
+            border-bottom: clamp(2px, 1vw, 4px) solid var(--neon);
             animation:pulse 4s infinite;
         }
         @keyframes pulse{0%,100%{box-shadow:0 0 20px var(--neon)}50%{box-shadow:0 0 50px var(--neon-glow)}}
@@ -50,23 +51,23 @@
             justify-content:center;
             align-items:center;
             text-align:center;
-            padding:0 20px;
+            padding:0 clamp(10px, 5vw, 20px);
             overflow:hidden;
         }
         .hero-bg{
             position:absolute;inset:0;
-            background:url('logo.png') center/70% no-repeat;
+            background:url('logo.png') center/ clamp(50%, 70vw, 70%) no-repeat;
             opacity:0.08;
             animation:float 30s infinite ease-in-out;
         }
         @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-50px) rotate(5deg)}}
         h1{
             font-family:'Monoton',cursive;
-            font-size:clamp(90px,18vw,220px);
+            font-size:clamp(60px, 18vw, 220px);
             background:linear-gradient(45deg,var(--neon),#fff,var(--neon-glow));
             -webkit-background-clip:text;
             -webkit-text-fill-color:transparent;
-            letter-spacing:15px;
+            letter-spacing:clamp(5px, 3vw, 15px);
             text-shadow:0 0 80px var(--neon-glow);
             animation:glitch 7s infinite;
         }
@@ -76,25 +77,25 @@
             4%{text-shadow:-8px 0 #ff0066,8px 0 #00ffff}
         }
         .subtitle{
-            font-size:42px;color:var(--neon);letter-spacing:14px;text-transform:uppercase;
+            font-size:clamp(24px, 8vw, 42px);color:var(--neon);letter-spacing:clamp(6px, 3vw, 14px);text-transform:uppercase;
             text-shadow:0 0 40px var(--neon-glow);
         }
 
         .games-grid{
             display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-            gap:50px;
+            grid-template-columns:repeat(auto-fit,minmax(clamp(280px, 80vw, 360px),1fr));
+            gap:clamp(30px, 10vw, 50px);
             max-width:1800px;
-            margin:140px auto 100px;
-            padding:0 30px;
+            margin:clamp(80px, 20vw, 140px) auto clamp(60px, 15vw, 100px);
+            padding:0 clamp(20px, 5vw, 30px);
         }
         .game-card{
             background:var(--card);
-            border-radius:28px;
+            border-radius:clamp(20px, 6vw, 28px);
             overflow:hidden;
-            border:3px solid #333;
+            border:clamp(2px, 1vw, 3px) solid #333;
             transition:all .7s ease;
-            box-shadow:0 15px 40px rgba(0,0,0,0.8);
+            box-shadow:0 clamp(10px, 3vw, 15px) 40px rgba(0,0,0,0.8);
             cursor:pointer;
         }
         .game-card:hover{
@@ -103,7 +104,7 @@
             box-shadow:0 0 120px rgba(255,196,57,0.8);
         }
         .game-cover{
-            height:340px;
+            height:clamp(240px, 70vw, 340px);
             background-size:cover;
             background-position:center;
             transition:transform 1s ease;
@@ -113,24 +114,24 @@
             content:'';position:absolute;inset:0;
             background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.9));
         }
-        .game-info{padding:35px;text-align:center}
+        .game-info{padding:clamp(25px, 8vw, 35px);text-align:center}
         .game-title{
             font-family:'Creepster',cursive;
-            font-size:32px;
+            font-size:clamp(24px, 7vw, 32px);
             color:var(--neon);
             text-shadow:0 0 30px var(--neon-glow);
         }
         .play-btn{
             background:var(--neon);
             color:#000;
-            padding:20px 60px;
-            font-size:26px;
+            padding:clamp(15px, 5vw, 20px) clamp(40px, 12vw, 60px);
+            font-size:clamp(20px, 6vw, 26px);
             font-weight:900;
             border:none;
             border-radius:50px;
             cursor:pointer;
-            letter-spacing:3px;
-            box-shadow:0 15px 50px rgba(255,196,57,0.7);
+            letter-spacing:clamp(2px, 1vw, 3px);
+            box-shadow:0 clamp(10px, 3vw, 15px) 50px rgba(255,196,57,0.7);
             transition:all .4s;
         }
         .play-btn:hover{
@@ -146,9 +147,9 @@
         }
         .modal-content{
             background:linear-gradient(135deg,#111,#000);
-            padding:50px;width:95%;max-width:1200px;
-            border:4px solid var(--neon);
-            border-radius:32px;
+            padding:clamp(30px, 10vw, 50px);width:95%;max-width:1200px;
+            border:clamp(3px, 1vw, 4px) solid var(--neon);
+            border-radius:clamp(24px, 8vw, 32px);
             text-align:center;
             box-shadow:0 0 150px rgba(255,196,57,0.9);
             animation:modalPop 0.6s ease-out;
@@ -163,27 +164,27 @@
         /* SLOTY Z GRAFIKAMI */
         .slot-machine{
             background:linear-gradient(#111,#000);
-            border:6px solid var(--neon);
-            border-radius:40px;
-            padding:40px;
+            border:clamp(4px, 2vw, 6px) solid var(--neon);
+            border-radius:clamp(30px, 10vw, 40px);
+            padding:clamp(30px, 10vw, 40px);
             box-shadow:0 0 100px rgba(255,196,57,0.8);
         }
         .reels{
-            display:flex;justify-content:center;gap:30px;
-            background:#000;padding:30px;border-radius:25px;
-            border:4px solid var(--neon);
+            display:flex;justify-content:center;gap:clamp(20px, 6vw, 30px);
+            background:#000;padding:clamp(20px, 6vw, 30px);border-radius:clamp(20px, 6vw, 25px);
+            border:clamp(3px, 1vw, 4px) solid var(--neon);
             box-shadow:inset 0 0 60px #111;
         }
         .reel{
-            width:160px;height:200px;
+            width:clamp(120px, 35vw, 160px);height:clamp(150px, 45vw, 200px);
             background:#000;
-            border:5px solid var(--neon);
-            border-radius:20px;
+            border:clamp(4px, 1.5vw, 5px) solid var(--neon);
+            border-radius:clamp(15px, 5vw, 20px);
             overflow:hidden;
             box-shadow:0 0 50px rgba(255,196,57,0.6);
         }
         .symbol{
-            width:160px;height:200px;
+            width:100%;height:100%;
             background-size:contain;
             background-repeat:no-repeat;
             background-position:center;
@@ -205,26 +206,26 @@
         <div class="subtitle">instant • tanio • bez ściemy</div>
     </header>
 
-    <div style="text-align:center;padding:120px 20px;background:linear-gradient(135deg,rgba(255,196,57,0.1),transparent)">
-        <h2 style="font-size:70px;color:var(--neon);text-shadow:0 0 60px var(--neon-glow)">LOBBY</h2>
-        <input type="text" id="lobbyCode" style="background:#111;border:3px solid var(--neon);color:#fff;padding:25px;font-size:32px;border-radius:50px;width:400px;text-align:center" placeholder="00000" maxlength="5">
+    <div style="text-align:center;padding:clamp(80px, 20vw, 120px) clamp(10px, 5vw, 20px);background:linear-gradient(135deg,rgba(255,196,57,0.1),transparent)">
+        <h2 style="font-size:clamp(50px, 15vw, 70px);color:var(--neon);text-shadow:0 0 60px var(--neon-glow)">LOBBY</h2>
+        <input type="text" id="lobbyCode" style="background:#111;border:3px solid var(--neon);color:#fff;padding:clamp(15px, 5vw, 25px);font-size:clamp(24px, 7vw, 32px);border-radius:50px;width:clamp(300px, 80vw, 400px);text-align:center" placeholder="00000" maxlength="5">
         <br><br>
-        <button class="play-btn" style="padding:20px 80px;font-size:28px">UTWÓRZ LOBBY</button>
-        <button class="play-btn" style="padding:20px 80px;font-size:28px">DOŁĄCZ</button>
+        <button class="play-btn" style="padding:clamp(15px, 5vw, 20px) clamp(60px, 18vw, 80px);font-size:clamp(22px, 6vw, 28px)">UTWÓRZ LOBBY</button>
+        <button class="play-btn" style="padding:clamp(15px, 5vw, 20px) clamp(60px, 18vw, 80px);font-size:clamp(22px, 6vw, 28px)">DOŁĄCZ</button>
     </div>
 
     <div class="games-grid" id="gamesContainer"></div>
 
-    <footer style="text-align:center;padding:120px 20px">
-        <img src="logo.png" alt="KACZE KASYNO" style="width:100px;filter:drop-shadow(0 0 30px var(--neon))">
-        <p style="color:#555;margin-top:20px">KACZE KASYNO © 2025 • KWAK KWAK MOTHERFUCKER</p>
+    <footer style="text-align:center;padding:clamp(80px, 20vw, 120px) clamp(10px, 5vw, 20px)">
+        <img src="logo.png" alt="KACZE KASYNO" style="width:clamp(80px, 25vw, 100px);filter:drop-shadow(0 0 30px var(--neon))">
+        <p style="color:#555;margin-top:20px;font-size:clamp(12px, 4vw, 16px)">KACZE KASYNO © 2025 • KWAK KWAK MOTHERFUCKER</p>
     </footer>
 
     <div id="gameModal" class="modal">
         <div class="modal-content">
-            <span class="close" style="position:absolute;top:20px;right:30px;color:var(--neon);font-size:50px;cursor:pointer">×</span>
-            <h2 id="gameTitle" style="font-size:60px;color:var(--neon);text-shadow:0 0 60px var(--neon-glow)">SLOTY</h2>
-            <div style="font-size:32px;margin:20px;color:var(--neon)">Balans: <span id="playerBalance">10000</span> żetonów</div>
+            <span class="close" style="position:absolute;top:clamp(10px, 3vw, 20px);right:clamp(15px, 4vw, 30px);color:var(--neon);font-size:clamp(40px, 10vw, 50px);cursor:pointer">×</span>
+            <h2 id="gameTitle" style="font-size:clamp(40px, 12vw, 60px);color:var(--neon);text-shadow:0 0 60px var(--neon-glow)">SLOTY</h2>
+            <div style="font-size:clamp(24px, 7vw, 32px);margin:20px;color:var(--neon)">Balans: <span id="playerBalance">10000</span> żetonów</div>
             <div id="gameArea"></div>
         </div>
     </div>
@@ -278,7 +279,7 @@ function openGame(title) {
     if (title.includes("Slots")) renderSlots(area);
     else if (title.includes("Ruletka")) renderRoulette(area);
     else if (title.includes("Poker") || title.includes("Blackjack")) renderPoker(area);
-    else area.innerHTML = `<h2 style="color:var(--neon);padding:150px;font-size:50px">WKRÓTCE!</h2>`;
+    else area.innerHTML = `<h2 style="color:var(--neon);padding:clamp(100px, 30vw, 150px);font-size:clamp(40px, 12vw, 50px)">WKRÓTCE!</h2>`;
 
     document.getElementById('gameModal').style.display = "flex";
 }
@@ -292,8 +293,8 @@ function renderSlots(area) {
                 <div class="reel"><div class="reel-strip" id="strip2"></div></div>
                 <div class="reel"><div class="reel-strip" id="strip3"></div></div>
             </div>
-            <button class="play-btn" style="font-size:40px;padding:30px 120px;margin-top:40px" onclick="spinSlots()">ZAKRĘĆ – 300</button>
-            <div id="slotResult" style="font-size:42px;margin-top:30px;min-height:80px"></div>
+            <button class="play-btn" style="font-size:clamp(30px, 8vw, 40px);padding:clamp(20px, 6vw, 30px) clamp(80px, 25vw, 120px);margin-top:clamp(30px, 8vw, 40px)" onclick="spinSlots()">ZAKRĘĆ – 300</button>
+            <div id="slotResult" style="font-size:clamp(32px, 10vw, 42px);margin-top:clamp(20px, 6vw, 30px);min-height:clamp(60px, 15vw, 80px)"></div>
         </div>`;
 
     // Wypełnienie pasków symbolami
@@ -340,7 +341,7 @@ window.spinSlots = function() {
                 document.querySelector('.slot-machine').style.animation = 'jackpotFlash 1s infinite, shake 0.8s';
                 for(let i=0; i<60; i++) {
                     const c = document.createElement('div');
-                    c.style.cssText = `position:fixed;top:-50px;left:${Math.random()*100}vw;width:15px;height:30px;background:${['gold','red','lime','cyan'][i%4]};animation:confetti ${2+Math.random()*2}s linear forwards;z-index:99999`;
+                    c.style.cssText = `position:fixed;top:-50px;left:\( {Math.random()*100}vw;width:15px;height:30px;background: \){['gold','red','lime','cyan'][i%4]};animation:confetti ${2+Math.random()*2}s linear forwards;z-index:99999`;
                     document.body.appendChild(c);
                     setTimeout(() => c.remove(), 5000);
                 }
@@ -357,10 +358,10 @@ window.spinSlots = function() {
 
 // RULETKA I POKER – DZIAŁAJĄCE
 function renderRoulette(area) {
-    area.innerHTML = `<h2 style="color:var(--neon);padding:150px">Ruletka wkrótce!</h2>`;
+    area.innerHTML = `<h2 style="color:var(--neon);padding:clamp(100px, 30vw, 150px)">Ruletka wkrótce!</h2>`;
 }
 function renderPoker(area) {
-    area.innerHTML = `<h2 style="color:var(--neon);padding:150px">Poker wkrótce!</h2>`;
+    area.innerHTML = `<h2 style="color:var(--neon);padding:clamp(100px, 30vw, 150px)">Poker wkrótce!</h2>`;
 }
 
 function updateBalance() {
