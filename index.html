@@ -210,8 +210,8 @@
         <h2 style="font-size:clamp(50px, 15vw, 70px);color:var(--neon);text-shadow:0 0 60px var(--neon-glow)">LOBBY</h2>
         <input type="text" id="lobbyCode" style="background:#111;border:3px solid var(--neon);color:#fff;padding:clamp(15px, 5vw, 25px);font-size:clamp(24px, 7vw, 32px);border-radius:50px;width:clamp(300px, 80vw, 400px);text-align:center" placeholder="00000" maxlength="5">
         <br><br>
-        <button class="play-btn" style="padding:clamp(15px, 5vw, 20px) clamp(60px, 18vw, 80px);font-size:clamp(22px, 6vw, 28px)">UTWÓRZ LOBBY</button>
-        <button class="play-btn" style="padding:clamp(15px, 5vw, 20px) clamp(60px, 18vw, 80px);font-size:clamp(22px, 6vw, 28px)">DOŁĄCZ</button>
+        <button class="play-btn" style="padding:clamp(15px, 5vw, 20px) clamp(60px, 18vw, 80px);font-size:clamp(22px, 6vw, 28px)" onclick="createLobby()">UTWÓRZ LOBBY</button>
+        <button class="play-btn" style="padding:clamp(15px, 5vw, 20px) clamp(60px, 18vw, 80px);font-size:clamp(22px, 6vw, 28px)" onclick="joinLobby()">DOŁĄCZ</button>
     </div>
 
     <div class="games-grid" id="gamesContainer"></div>
@@ -223,7 +223,7 @@
 
     <div id="gameModal" class="modal">
         <div class="modal-content">
-            <span class="close" style="position:absolute;top:clamp(10px, 3vw, 20px);right:clamp(15px, 4vw, 30px);color:var(--neon);font-size:clamp(40px, 10vw, 50px);cursor:pointer">×</span>
+            <span class="close" style="position:absolute;top:clamp(10px, 3vw, 20px);right:clamp(15px, 4vw, 30px);color:var(--neon);font-size:clamp(40px, 10vw, 50px);cursor:pointer" onclick="closeModal()">×</span>
             <h2 id="gameTitle" style="font-size:clamp(40px, 12vw, 60px);color:var(--neon);text-shadow:0 0 60px var(--neon-glow)">SLOTY</h2>
             <div style="font-size:clamp(24px, 7vw, 32px);margin:20px;color:var(--neon)">Balans: <span id="playerBalance">10000</span> żetonów</div>
             <div id="gameArea"></div>
@@ -377,6 +377,24 @@ window.addEventListener('click', (e) => {
         document.getElementById('gameModal').style.display = 'none';
     }
 });
+
+// LOBBY – PROSTA FUNKCJONALNOŚĆ
+function createLobby() {
+    const code = document.getElementById('lobbyCode').value.trim();
+    if (/^\d{5}$/.test(code)) {
+        alert('Lobby utworzone! Kod: ' + code);
+    } else {
+        alert('Podaj 5 cyfr!');
+    }
+}
+function joinLobby() {
+    const code = document.getElementById('lobbyCode').value.trim();
+    if (/^\d{5}$/.test(code)) {
+        alert('Dołączono do lobby: ' + code);
+    } else {
+        alert('Podaj 5 cyfr!');
+    }
+}
 </script>
 </body>
 </html>
